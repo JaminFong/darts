@@ -1,5 +1,7 @@
 # Differentiable Architecture Search
 ## multi-gpu implementation and gpu utilization modified
+`--unrolled` version not available yet.
+
 Code accompanying the paper
 > [DARTS: Differentiable Architecture Search](https://arxiv.org/abs/1806.09055)\
 > Hanxiao Liu, Karen Simonyan, Yiming Yang.\
@@ -41,10 +43,9 @@ cd cnn && python test_imagenet.py --auxiliary --model_path imagenet_model.pt
 * Expected result: 26.7% top-1 error and 8.7% top-5 error with 4.7M model params.
 
 ## Architecture search (using small proxy models)
-To carry out architecture search using 2nd-order approximation, run
+To carry out architecture search using 1nd-order approximation, run
 ```
-cd cnn && python train_search.py --unrolled     # for conv cells on CIFAR-10
-cd rnn && python train_search.py --unrolled     # for recurrent cells on PTB
+cd cnn && python train_search.py      # for conv cells on CIFAR-10
 ```
 Note the _validation performance in this step does not indicate the final performance of the architecture_. One must train the obtained genotype/architecture from scratch using full-sized models, as described in the next section.
 
